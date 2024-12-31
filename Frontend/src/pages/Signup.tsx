@@ -1,6 +1,5 @@
 import Quote from '../components/Quote'
 import Auth from '../components/Auth'
-import { Partical } from '../components/Partical'
 
 export default function Signup() {
   return (
