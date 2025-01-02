@@ -1,4 +1,4 @@
-# proj_Onblogs  Live On :- https://proj-onblogs.vercel.app/blogs
+# proj_Onblogs  Live On :- https://proj-onblogs.vercel.app/signup
 
 <img width="1236" alt="Screenshot 2024-12-31 at 5 57 32 PM" src="https://github.com/user-attachments/assets/e2221c92-fb39-4926-a76c-b9da28a4fd12" />
 
