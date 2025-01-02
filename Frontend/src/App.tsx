@@ -4,7 +4,6 @@ import Signin from './pages/Signin'
 import Blog from './pages/Blog'
 import Blogs from './pages/Blogs'
 import Publish from './pages/Publish'
-import './App.css'
 // import Home from './pages/Home'
 
 function App() {
