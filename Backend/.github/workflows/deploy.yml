@@ -1,0 +1,52 @@
+name: Deploy Backend
+
+# STEP A: WHEN TO RUN
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Backend/**'  # Only run when Backend files change
+
+# STEP B: THE JOBS
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # The "kitchen" where cooking happens
+    
+    steps:
+    # Step 1: Get the code
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    # Step 2: Setup Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: 'Backend/package-lock.json'
+    
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./Backend
+    
+    # Step 4: Generate Prisma Client
+    - name: Generate Prisma Client
+      run: npx prisma generate
+      working-directory: ./Backend
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    
+    # Step 5: Type check (safety net)
+    - name: Type check
+      run: npx tsc --noEmit
+      working-directory: ./Backend
+    
+    # Step 6: DEPLOY! 🚀
+    - name: Deploy to Cloudflare Workers
+      uses: cloudflare/wrangler-action@3.0.0
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: deploy
+        workingDirectory: './Backend'
