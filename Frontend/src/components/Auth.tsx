@@ -27,7 +27,7 @@ export default function Auth ({ type }: { type: "signup" | "signin" }) {
     }
 
   return (
-    <div className='h-screen flex justify-center flex-col '>
+    <div className='h-screen flex justify-center flex-col'>
         {/* {JSON.stringify(postInputs)} */}
         <div className='flex justify-center'>
             <div>

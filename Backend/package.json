@@ -2,7 +2,9 @@
   "name": "Backend",
   "scripts": {
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "generate": "prisma generate",
+    "build": "prisma generate"
   },
   "dependencies": {
     "@hetsuthar_3/blog-common": "^1.0.3",
@@ -14,6 +16,6 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241218.0",
-    "wrangler": "^3.96.0"
+    "wrangler": "^4.61.1"
   }
 }

@@ -61,11 +61,20 @@ userRouter.post('/signup', async (c) => {
 }); 
   
 userRouter.post('/signin', async (c) => {
+  const body = await c.req.json();
+  const { success } = signinInput.safeParse(body);
+  if(!success) {
+    c.status(411);
+    return c.json({
+      message: "Input not correct",
+    });
+    
+  }
+
   const prisma = new PrismaClient({
     datasourceUrl: c.env?.DATABASE_URL,
   }).$extends(withAccelerate());
   
-  const body = await c.req.json();
   
   try {
     const user = await prisma.user.findUnique({

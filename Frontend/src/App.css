@@ -2,3 +2,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Onblogs theme - paper & ink */
+body {
+  font-family: 'Newsreader', serif;
+  background-color: #F4F1EA;
+  color: #1A1A1A;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F1EA;
+  border-left: 1px solid rgba(26, 26, 26, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border: 3px solid #F4F1EA;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D32F2F;
+}
+::selection {
+  background-color: #D32F2F;
+  color: #F4F1EA;
+}
