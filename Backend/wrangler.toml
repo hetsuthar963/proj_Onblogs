@@ -1,32 +1,14 @@
-name = "backend"
+name = "blog-backend"
 main = "src/index.ts"
-compatibility_date = "2024-12-24"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
 
-# compatibility_flags = [ "nodejs_compat" ]
+# For Prisma to work
+node_compat = true
+
+[env.production]
+name = "blog-backend"
+workers_dev = true  # Change to false when using custom domain
 
 [vars]
-DATABASE_URL=""
-JWT_SECRET = ""
-
-
-
-
-# [[kv_namespaces]]
-# binding = "MY_KV_NAMESPACE"
-# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-
-# [[r2_buckets]]
-# binding = "MY_BUCKET"
-# bucket_name = "my-bucket"
-
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "my-database"
-# database_id = ""
-
-# [ai]
-# binding = "AI"
-
-# [observability]
-# enabled = true
-# head_sampling_rate = 1
+DATABASE_URL = "DATABASE_URL_PLACEHOLDER"
