@@ -32,7 +32,7 @@ jobs:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
     
     - name: Type check
-      run: npx tsc --noEmit
+      run: npm run typecheck
       working-directory: ./Backend
     
     - name: Deploy to Cloudflare Workers
